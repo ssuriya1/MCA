@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div id="loginContainer">
+      <h1>Login</h1>
+      <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required /><br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" required /><br />
+        <input type="submit" id="submit" value="Log In" />
+      </form>
+    </div>
+
+    <div id="portfolioContainer" class="hidden">
+      <div id="header">
+        <h1>Welcome to My Portfolio!</h1>
+        <button id="logoutBtn">Log Out</button>
+      </div>
+      <div id="content">
+        <div id="profile">
+          <img
+            src="https://freesvg.org/img/abstract-user-flat-4.png"
+            alt="Profile Image"
+          />
+          <h2>John Doe</h2>
+          <p>Web Developer</p>
+        </div>
+        <div id="details">
+          <h2>About Me</h2>
+          <p>
+            I am a passionate web developer with expertise in HTML, CSS, and
+            JavaScript. I love building interactive and visually appealing
+            websites.
+          </p>
+          <h2>Projects</h2>
+          <ul>
+            <li>
+              Project 1: Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit.
+            </li>
+            <li>
+              Project 2: Nulla facilisi. Mauris lacinia, diam non viverra
+              dignissim, lectus nisl porta purus, ac pellentesque sapien urna id
+              libero.
+            </li>
+            <li>
+              Project 3: Fusce id libero ut felis euismod scelerisque non et
+              risus.
+            </li>
+          </ul>
+          <h2>Contact</h2>
+          <p>Email: example@example.com</p>
+          <p>Phone: 123-456-7890</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
