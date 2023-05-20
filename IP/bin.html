@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script>
+        function submitForm(){
+            
+            var marks = document.getElementsByName("marks");
+            var credits = document.getElementsByName("credits");
+            
+            if((marks[0].value > 100 || marks[1].value > 100 || marks[2].value > 100) ||
+               (marks[0].value < 0 || marks[1].value< 0 || marks[2].value < 0)){
+                alert("Marks should be in range 0 - 100")
+            }   
+            else if((credits[0].value > 10 || credits[1].value > 10 || credits[2].value > 10) ||
+               (credits[0].value < 1 || credits[1].value < 1 || credits[2].value < 1)){
+                alert("Credits should be in range 1 - 10")
+            } 
+            else{
+                let totalGPA = eval((marks[0].value * credits[0].value) + (marks[1].value * credits[1].value) + (marks[2].value * credits[2].value));
+                let totalCredits = credits[0].value + credits[1].value + credits[2].value;
+
+                let cgpaValue = totalGPA/totalCredits;
+
+                document.getElementsByName("CGPA")[0].value = cgpaValue;
+            }              
+         }
+    </script>
+</head>
+
+<body class="bodyStyle">
+    <h2 class="headerStyle" }> <u>CGPA Calculation </u></h2>
+    <form class="formStyle" id="cgpa-form">
+        <div class="formSections">
+            <div class="form-subSections">
+                <label>Enter your Name: </label>
+                <input type="text" name="Name" required ><br>
+            </div>
+
+            <div class="form-subSections">
+                <label>Enter your registration number: </label>
+                <input type="text" name="regno" required >
+            </div>
+        </div>
+
+        <div class="formSections">
+            <div class="form-subSections">
+                <label>Enter the marks for Subject 1: </label>
+                <input type="number" name="marks" required>
+            </div>
+
+            <div class="form-subSections">
+                <label>Enter the credits for Subject 1: </label>
+                <input type="number" name="credits" required>
+            </div>
+        </div>
+
+        <div class="formSections">
+            <div class="form-subSections">
+                <label>Enter the marks for Subject 2: </label>
+                <input type="number" name="marks" required>
+            </div>
+
+            <div class="form-subSections">
+                <label>Enter the credits for Subject 2: </label>
+                <input type="number"  name="credits" required>
+            </div>
+        </div>
+
+        <div class="formSections">
+            <div class="form-subSections">
+                <label>Enter the marks for Subject 3: </label>
+                <input type="number" name="marks" required>
+            </div>
+
+            <div class="form-subSections">
+                <label>Enter the credits for Subject 3: </label>
+                <input type="number" name="credits" required>
+            </div> 
+        </div>
+
+        <div class="formSections">
+            <input type="button" value="Calculate" onclick="submitForm()"> 
+            <input type="reset" onclick="submitForm()"> <br><br>
+            <label>CGPA is: </label>
+            <input type="number" style="margin-top: 10px;" name="CGPA" disabled>
+        </div>
+    </form>
+</body>
+
+</html>
+
+
+
+CSS----------------------------------------------------------------------------------------
+.headerStyle{
+    align-content: center;
+    margin-top: 10px;
+}
+.bodyStyle{
+    background-color: floralwhite;
+}
+.formStyle{
+    border: burlywood;
+    border-style: groove;
+    max-width: 450px;
+    padding: 10px;
+}
+
+.formSections{
+    padding:10px;
+}
+
+.form-subSections{
+    margin-top: 3px;
+}
+
+html---------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+    <title>PORTFILIO</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <span id="disabled" class="tablinks" onclick="select(event, 'home')">Home</span>
+        <span id="" class="tablinks" onclick="select(event, 'login')">Login</span>
+        <span id="disabled" class="tablinks" onclick="select(event, 'about')">About</span>
+    </div>
+
+    <div id="home" class="tabcontent">
+        <div class="main center">
+            <div class="card">
+                <div class="front center">
+                    <div id="out">
+                        <div id="in">
+                            <div class="cardContent">
+                                <h1>Welcome to My portfolio</h1><br>
+                                <p><em>hover the mouse to turn the card</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="back center">
+                    <div id="out">
+                        <div id="in">
+                            <div class="cardContent">
+                                <p class="center">
+                                <h3>Try Changing the tabs</h3>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="login" class="tabcontent active">
+        <div class="container">
+            <div class="box">
+                <h2>Login</h2>
+                <form action="./index.html" method="post" onsubmit="return submitForm()">
+                    <div class="inputbox">
+                        <input id="email" type="text" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <input id="password" type="password" required>
+                        <label>Password</label>
+                    </div>
+                    <a class="forgotPassword" href="#">Forgot Password ?</a>
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="tabcontent">
+        <details>
+            <summary class="summary">School</summary>
+            <table class="table">
+                <th>School</th>
+                <th>Standard</th>
+                <th>Mark</th>
+                <tr>
+                    <td>NSN</td>
+                    <td>10th</td>
+                    <td>60%</td>
+                </tr>
+                <tr>
+                    <td>Loyola</td>
+                    <td>12th</td>
+                    <td>60%</td>
+                </tr>
+            </table>
+        </details>
+        <details>
+            <summary>Carrer</summary>
+            <p>Working in TCS as a Full Stack Developer.</p>
+        </details>
+    </div>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Login</title>
+</head>
+
+<body class="loginBody">
+    <div class="box">
+        <h2>Login</h2>
+        <form>
+            <div class="inputbox">
+                <input type="text" required>
+                <label>Username</label>
+            </div>
+            <div class="inputbox">
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+            <a class="forgotPassword" href="#">Forgot Password ?</a>
+            <input type="submit">
+        </form>
+    </div>
+
+</body>
+
+</html>
+
+CSS-----------------------------------------------------------------
+.h2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.navbar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar span {
+    text-decoration: none;
+    color: #fff;
+    padding: 1rem 12rem;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.navbar span:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.navbar span.active {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.tabcontent {
+    display: none;
+    padding: 2rem;
+    justify-content: center;
+}
+
+.active {
+    display: block;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+}
+
+/* Login */
+body {
+    background-image: url('https://images.unsplash.com/photo-1611416517780-eff3a13b0359?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y2l0eSUyMGF0JTIwbmlnaHR8ZW58MHx8MHx8&w=1000&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+.box {
+    width: 400px;
+    padding: 2rem 3rem;
+    background: rgba(0, 0, 0, .8);
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.box h2 {
+    text-align: center;
+    margin: 0 0 30px;
+}
+
+.box .inputbox {
+    position: relative;
+}
+
+.box .inputbox input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    border: none;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    background: transparent;
+    outline: none;
+}
+
+.inputbox label {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    padding: 10px 0;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+.box .inputbox input:focus~label,
+.box .inputbox input:valid~label {
+    top: -20px;
+    font-size: 12px;
+    color: #03a9f4;
+}
+
+.box input[type="submit"] {
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #039af4;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 30%;
+    transform: translate(120%);
+}
+
+.forgotPassword {
+    color: white;
+    padding-bottom: 2rem;
+}
+
+/* card */
+.cardContent {
+    height: 100%;
+    width: 100%;
+}
+
+.outer {
+    width: 100%;
+    margin: auto;
+}
+
+#in {
+    z-index: -2;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    width: 100%;
+    height: 30rem;
+    color: black;
+}
+
+.card {
+    width: 30%;
+    height: 50%;
+    position: relative;
+    color: #fff;
+}
+
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #888;
+    border-radius: 5%;
+    box-shadow: 3px 3px #333;
+    background-color: #1b2244;
+}
+
+.front {
+    backface-visibility: hidden;
+    transform: perspective(600px) rotateY(0deg);
+    transition: all 1s;
+}
+
+.back {
+    backface-visibility: hidden;
+    transform: perspective(600px) rotateY(180deg);
+    transition: all 1s;
+}
+
+.card:hover>.front {
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+.card:hover>.back {
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.table {
+    border: 2px groove #03a9f4;
+}
+
+.table th {
+    border: 2px groove #03a9f4;
+    width: 10rem;
+    padding: 1rem;
+}
+
+.table td {
+    border: 2px groove #03a9f4;
+    width: 10rem;
+    padding: 1rem;
+}
+
+details {
+    margin: 2rem 1rem;
+    cursor: pointer;
+}
+
+#disabled {
+    pointer-events: none;
+}
+
+script-------------------------------------------------------------
+function select(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function submitForm() {
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+
+
+    if (email.indexOf('@') == -1) {
+        alert('Email does not match the pattern')
+    }
+}
