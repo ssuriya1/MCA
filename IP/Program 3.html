@@ -21,7 +21,7 @@
       }
 
       .chat-header {
-        background-color: #4caf50;
+        background-color: #4c87af;
         color: white;
         padding: 10px;
         text-align: center;
@@ -83,10 +83,21 @@
         font-size: 16px;
         cursor: pointer;
         transition: background-color 0.2s;
+        margin: auto 2px;
+      }
+      #deleteChatBtn:hover {
+        background-color: red;
+        color: white;
       }
 
-      .chat-input button:hover {
-        background-color: #45a049;
+      #deleteChatBtn {
+        background-color: white;
+        color: black;
+        border: 2px solid red;
+      }
+
+      #sendMessageBtn:hover {
+        background-color: #008407;
       }
     </style>
   </head>
@@ -101,6 +112,7 @@
           placeholder="Enter your message..."
         />
         <button id="sendMessageBtn">Send</button>
+        <button id="deleteChatBtn">Delete Chat</button>
       </div>
     </div>
 
@@ -108,6 +120,7 @@
       const chatMessages = document.getElementById("chatMessages");
       const messageInput = document.getElementById("messageInput");
       const sendMessageBtn = document.getElementById("sendMessageBtn");
+      const deleteChatBtn = document.getElementById("deleteChatBtn");
 
       const dbName = "chatMessagesDB";
       const dbVersion = 1;
@@ -143,6 +156,7 @@
       };
 
       sendMessageBtn.addEventListener("click", sendMessage);
+      deleteChatBtn.addEventListener("click", deleteChat);
 
       function sendMessage() {
         const message = messageInput.value.trim();
@@ -188,6 +202,24 @@
       setInterval(() => {
         displayStoredMessages();
       }, 10000);
+
+      function deleteChat() {
+        if (
+          confirm("Are you sure you want to delete the entire chat history?")
+        ) {
+          clearChatMessages();
+        }
+      }
+
+      function clearChatMessages() {
+        const transaction = db.transaction("messages", "readwrite");
+        const messagesStore = transaction.objectStore("messages");
+        const request = messagesStore.clear();
+
+        request.onsuccess = () => {
+          chatMessages.innerHTML = ""; // Clear displayed messages on the page
+        };
+      }
     </script>
   </body>
 </html>
