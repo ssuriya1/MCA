@@ -95,7 +95,6 @@
       <div class="chat-header">Chat Application</div>
       <div class="chat-messages" id="chatMessages"></div>
       <div class="chat-input">
-        <input type="text" id="nameInput" placeholder="Your Name" />
         <input
           type="text"
           id="messageInput"
@@ -107,14 +106,23 @@
 
     <script>
       const chatMessages = document.getElementById("chatMessages");
-      const nameInput = document.getElementById("nameInput");
       const messageInput = document.getElementById("messageInput");
       const sendMessageBtn = document.getElementById("sendMessageBtn");
 
-      // Initialize IndexedDB
       const dbName = "chatMessagesDB";
       const dbVersion = 1;
       let db;
+      let userName = "";
+
+      function loginUser() {
+        userName = prompt("Please enter your username:");
+        if (!userName) {
+          alert("Username is required!");
+          loginUser();
+        }
+      }
+
+      loginUser();
 
       const request = indexedDB.open(dbName, dbVersion);
 
@@ -137,14 +145,12 @@
       sendMessageBtn.addEventListener("click", sendMessage);
 
       function sendMessage() {
-        const name = nameInput.value.trim();
         const message = messageInput.value.trim();
-        if (name === "" || message === "") {
+        if (userName === "" || message === "") {
           return;
         }
 
-        storeMessage(name, message);
-        nameInput.value = "";
+        storeMessage(userName, message);
         messageInput.value = "";
         messageInput.focus();
       }
@@ -178,6 +184,10 @@
         messageElement.innerHTML = `<strong>${name}:</strong> ${message}`;
         chatMessages.appendChild(messageElement);
       }
+
+      setInterval(() => {
+        displayStoredMessages();
+      }, 10000);
     </script>
   </body>
 </html>
