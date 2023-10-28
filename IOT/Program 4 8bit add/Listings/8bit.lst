@@ -1,0 +1,47 @@
+A51 MACRO ASSEMBLER  8BIT                                                                 10/28/2023 15:11:39 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\8bit.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 8bit.asm SET(SMALL) DEBUG PRINT(.\Listings\8bit.lst) OBJECT(.\Objects\8
+                      bit.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+0000 7580FF            2     Mov p0, #0FFH
+0003 7590FF            3     Mov p1, #0FFH
+0006 75A000            4     Mov p2, #00H
+0009 75B000            5     Mov p3, #00H
+000C 7900              6     L1: Mov R1, #00H
+000E 8580F0            7     Mov B,p0
+0011 E590              8     Mov A,P1
+0013 C3                9     CLR C 
+0014 25F0             10     Add A,B
+0016 5001             11     JNC L2
+0018 09               12     INC R1
+0019 8590A0           13     L2: Mov P2,P1
+001C F5B0             14     Mov P3,A
+001E 80EC             15     SJMP L1
+                      16     END
+A51 MACRO ASSEMBLER  8BIT                                                                 10/28/2023 15:11:39 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+L1 . . . . . . . .  C ADDR   000CH   A   
+L2 . . . . . . . .  C ADDR   0019H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,47 @@
+A51 MACRO ASSEMBLER  ARITHMETIC_OPERATIONS                                                10/28/2023 14:44:38 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Arithmetic Operations.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Arithmetic Operations.asm SET(SMALL) DEBUG PRINT(.\Listings\Arithmetic 
+                      Operations.lst) OBJECT(.\Objects\Arithmetic Operations.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000 7425              1     Mov a,#25h
+0002 75F012            2     Mov b,#12h
+0005 25F0              3     Add a,b
+0007 F540              4     Mov 40h,a
+0009 7425              5     Mov a, #25h
+000B 95F0              6     Subb a,b
+000D F541              7     Mov 41h,a
+000F 7425              8     Mov a,#25h
+0011 A4                9     Mul ab
+0012 F542             10     Mov 42h,a
+0014 85F043           11     Mov 43h,b
+0017 7425             12     Mov a,#25h
+0019 75F012           13     Mov b,#12h
+001C 84               14     Div ab
+001D F544             15     Mov 44h,a
+001F 85F045           16     Mov 45h,b
+0022 7425             17     Mov a,#25h
+0024 04               18     Inc a
+0025 F546             19     Mov 46h,a
+0027 14               20     Dec a
+0028 F547             21     Mov 47h,a
+                      22     End
+A51 MACRO ASSEMBLER  ARITHMETIC_OPERATIONS                                                10/28/2023 14:44:38 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

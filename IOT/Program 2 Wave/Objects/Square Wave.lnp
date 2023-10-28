@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\Square Wave.obj" 
+TO ".\Objects\Square Wave" 
+PRINT(".\Listings\Square Wave.m51")

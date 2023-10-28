@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\lcd interface.obj" 
+TO ".\Objects\Interface lcd keypad" 
+PRINT(".\Listings\Interface lcd keypad.m51")
