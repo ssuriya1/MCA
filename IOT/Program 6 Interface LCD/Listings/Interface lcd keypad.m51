@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    10/28/2023  16:41:42  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    10/28/2023  17:36:41  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -22,8 +22,7 @@ LINK MAP OF MODULE:  .\Objects\Interface lcd keypad (?C_STARTUP)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     0002H     UNIT         _DATA_GROUP_
-            IDATA   000AH     0001H     UNIT         ?STACK
+            IDATA   0008H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
@@ -40,30 +39,30 @@ LINK MAP OF MODULE:  .\Objects\Interface lcd keypad (?C_STARTUP)
 OVERLAY MAP OF MODULE:   .\Objects\Interface lcd keypad (?C_STARTUP)
 
 
-SEGMENT                             DATA_GROUP 
-  +--> CALLED SEGMENT             START    LENGTH
--------------------------------------------------
-?C_C51STARTUP                     -----    -----
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
   +--> ?PR?MAIN?LCD_INTERFACE
 
-?PR?MAIN?LCD_INTERFACE            0008H    0001H
-  +--> ?PR?_LCDCMD?LCD_INTERFACE
-  +--> ?PR?DELAY?LCD_INTERFACE
+?PR?MAIN?LCD_INTERFACE
   +--> ?PR?_LCDDAT?LCD_INTERFACE
+  +--> ?PR?DELAY?LCD_INTERFACE
   +--> ?PR?DELAY1?LCD_INTERFACE
+  +--> ?PR?_LCDCMD?LCD_INTERFACE
 
-?PR?_LCDCMD?LCD_INTERFACE         0009H    0001H
+?PR?_LCDDAT?LCD_INTERFACE
   +--> ?PR?DELAY?LCD_INTERFACE
 
-?PR?_LCDDAT?LCD_INTERFACE         0009H    0001H
+?PR?_LCDCMD?LCD_INTERFACE
   +--> ?PR?DELAY?LCD_INTERFACE
 
 ******************************************************************************
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/28/2023  16:41:42  PAGE 2
-
-
 * RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 010FH BYTE (13%) *
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/28/2023  17:36:41  PAGE 2
+
+
 ******************************************************************************
 
-Program Size: data=11.0 xdata=0 code=271
+Program Size: data=9.0 xdata=0 code=271
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

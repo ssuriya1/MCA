@@ -17,17 +17,7 @@ void delay();
 void delay1();
 
 void main() {
-	unsigned char p2 = 0x100;
-	lcdcmd(0x38);
-	delay();
-	lcdcmd(0x01);
-	delay();
-	lcdcmd(0x06);
-	delay();
-	lcdcmd(0x0c);
-	delay();
-	lcdcmd(0x81);
-	delay();
+	P2 = 0x100;
 	while(1) {
 		r1 = 0;
 		if(c1 == 0) {
@@ -78,11 +68,21 @@ void main() {
 			delay1();	
 		}
 		r4 = 1;
+			lcdcmd(0x38);
+		delay();
+		lcdcmd(0x01);
+		delay();
+		lcdcmd(0x06);
+		delay();
+		lcdcmd(0x0c);
+		delay();
+		lcdcmd(0x81);
+		delay();
 	}
 }
 
 void lcdcmd(unsigned char val) {
-	unsigned char p2 = val;
+	P2 = val;
 	rs = 0;
 	rw = 0;
 	en = 1;
@@ -91,7 +91,7 @@ void lcdcmd(unsigned char val) {
 }
 
 void lcddat(unsigned char val) {
-	unsigned char p2 = val;
+	P2 = val;
 	rs = 1;
 	rw = 0;
 	en = 1;
