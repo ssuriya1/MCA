@@ -13,8 +13,6 @@ sfr lcd = 0xa0;
 
 void lcdcmd(unsigned char);
 void lcddat(unsigned char);
-void delay();
-void delay1();
 
 void main() {
 	P2 = 0x100;
@@ -22,62 +20,49 @@ void main() {
 		r1 = 0;
 		if(c1 == 0) {
 			lcddat('1');
-			delay();
-			delay1();
 		}
 		if(c2 == 0) {
 			lcddat('2');
-			delay();
-			delay1();	
 		}
 		if(c3 == 0) {
 			lcddat('3');
-			delay();
-			delay1();	
 		}
 		r1 = 1; r2 = 0;
 		if(c1 == 0) {
 			lcddat('4');
-			delay();
-			delay1();
 		}
 		if(c2 == 0) {
 			lcddat('5');
-			delay();
-			delay1();	
 		}
 		if(c3 == 0) {
 			lcddat('6');
-			delay();
-			delay1();	
+		}
+		r2 = 1; r3 = 0;
+		if(c1 == 0) {
+			lcddat('7');
+		}
+		if(c2 == 0) {
+			lcddat('8');
+		}
+		if(c3 == 0) {
+			lcddat('9');
 		}
 		r3 = 1; r4 = 0;
 		if(c1 == 0) {
 			lcddat('*');
-			delay();
-			delay1();
 		}
 		if(c2 == 0) {
 			lcddat('0');
-			delay();
-			delay1();	
 		}
 		if(c3 == 0) {
 			lcddat('#');
-			delay();
-			delay1();	
 		}
 		r4 = 1;
-			lcdcmd(0x38);
-		delay();
+		lcdcmd(0x38);
 		lcdcmd(0x01);
-		delay();
 		lcdcmd(0x06);
-		delay();
 		lcdcmd(0x0c);
-		delay();
 		lcdcmd(0x81);
-		delay();
 	}
 }
 
@@ -97,15 +82,4 @@ void lcddat(unsigned char val) {
 	en = 1;
 	delay();
 	en = 0;
-}
-
-void delay() {
-	unsigned int i;
-	for (i=0; i<10000; i++) {}
-}
-
-void delay1() {
-	unsigned int j, k;
-	for (j=0; j<200; j++) {}
-	for (k=0; k<200; k++) {}
 }

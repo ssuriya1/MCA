@@ -1,10 +1,10 @@
-C51 COMPILER V9.60.0.0   LCD_INTERFACE                                                     10/28/2023 17:36:41 PAGE 1   
+C51 COMPILER V9.60.0.0   LCD_INTERFACE                                                     11/04/2023 15:01:12 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE LCD_INTERFACE
 OBJECT MODULE PLACED IN .\Objects\lcd interface.obj
-COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE lcd interface.c OPTIMIZE(8,SPEED) BROWSE PRINT(.\Listings\lcd interface.
-                    -lst) TABS(2) OBJECT(.\Objects\lcd interface.obj)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE lcd interface.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\List
+                    -ings\lcd interface.lst) TABS(2) OBJECT(.\Objects\lcd interface.obj)
 
 line level    source
 
@@ -32,102 +32,87 @@ line level    source
   22   2          r1 = 0;
   23   2          if(c1 == 0) {
   24   3            lcddat('1');
-  25   3            delay();
-  26   3            delay1();
-  27   3          }
-  28   2          if(c2 == 0) {
-  29   3            lcddat('2');
-  30   3            delay();
-  31   3            delay1(); 
-  32   3          }
-  33   2          if(c3 == 0) {
-  34   3            lcddat('3');
-  35   3            delay();
-  36   3            delay1(); 
-  37   3          }
-  38   2          r1 = 1; r2 = 0;
-  39   2          if(c1 == 0) {
-  40   3            lcddat('4');
-  41   3            delay();
-  42   3            delay1();
-  43   3          }
-  44   2          if(c2 == 0) {
-  45   3            lcddat('5');
-  46   3            delay();
-  47   3            delay1(); 
+  25   3          }
+  26   2          if(c2 == 0) {
+  27   3            lcddat('2');
+  28   3          }
+  29   2          if(c3 == 0) {
+  30   3            lcddat('3');
+  31   3          }
+  32   2          r1 = 1; r2 = 0;
+  33   2          if(c1 == 0) {
+  34   3            lcddat('4');
+  35   3          }
+  36   2          if(c2 == 0) {
+  37   3            lcddat('5');
+  38   3          }
+  39   2          if(c3 == 0) {
+  40   3            lcddat('6');
+  41   3          }
+  42   2          r2 = 1; r3 = 0;
+  43   2          if(c1 == 0) {
+  44   3            lcddat('7');
+  45   3          }
+  46   2          if(c2 == 0) {
+  47   3            lcddat('8');
   48   3          }
   49   2          if(c3 == 0) {
-  50   3            lcddat('6');
-  51   3            delay();
-  52   3            delay1(); 
-  53   3          }
-  54   2          r3 = 1; r4 = 0;
-C51 COMPILER V9.60.0.0   LCD_INTERFACE                                                     10/28/2023 17:36:41 PAGE 2   
+  50   3            lcddat('9');
+  51   3          }
+  52   2          r3 = 1; r4 = 0;
+  53   2          if(c1 == 0) {
+  54   3            lcddat('*');
+C51 COMPILER V9.60.0.0   LCD_INTERFACE                                                     11/04/2023 15:01:12 PAGE 2   
 
-  55   2          if(c1 == 0) {
-  56   3            lcddat('*');
-  57   3            delay();
-  58   3            delay1();
-  59   3          }
-  60   2          if(c2 == 0) {
-  61   3            lcddat('0');
-  62   3            delay();
-  63   3            delay1(); 
-  64   3          }
-  65   2          if(c3 == 0) {
-  66   3            lcddat('#');
-  67   3            delay();
-  68   3            delay1(); 
-  69   3          }
-  70   2          r4 = 1;
-  71   2            lcdcmd(0x38);
-  72   2          delay();
-  73   2          lcdcmd(0x01);
-  74   2          delay();
-  75   2          lcdcmd(0x06);
-  76   2          delay();
-  77   2          lcdcmd(0x0c);
-  78   2          delay();
-  79   2          lcdcmd(0x81);
-  80   2          delay();
-  81   2        }
-  82   1      }
-  83          
-  84          void lcdcmd(unsigned char val) {
-  85   1        P2 = val;
-  86   1        rs = 0;
-  87   1        rw = 0;
-  88   1        en = 1;
-  89   1        delay();
-  90   1        en = 0;
-  91   1      }
-  92          
-  93          void lcddat(unsigned char val) {
-  94   1        P2 = val;
-  95   1        rs = 1;
-  96   1        rw = 0;
-  97   1        en = 1;
-  98   1        delay();
-  99   1        en = 0;
- 100   1      }
- 101          
- 102          void delay() {
- 103   1        unsigned int i;
- 104   1        for (i=0; i<10000; i++) {}
- 105   1      }
- 106          
- 107          void delay1() {
- 108   1        unsigned int j, k;
- 109   1        for (j=0; j<200; j++) {}
- 110   1        for (k=0; k<200; k++) {}
- 111   1      }
+  55   3          }
+  56   2          if(c2 == 0) {
+  57   3            lcddat('0');
+  58   3          }
+  59   2          if(c3 == 0) {
+  60   3            lcddat('#');
+  61   3          }
+  62   2          r4 = 1;
+  63   2          lcdcmd(0x38);
+  64   2          lcdcmd(0x01);
+  65   2          lcdcmd(0x06);
+  66   2          lcdcmd(0x0c);
+  67   2          lcdcmd(0x81);
+  68   2        }
+  69   1      }
+  70          
+  71          void lcdcmd(unsigned char val) {
+  72   1        P2 = val;
+  73   1        rs = 0;
+  74   1        rw = 0;
+  75   1        en = 1;
+  76   1        delay();
+  77   1        en = 0;
+  78   1      }
+  79          
+  80          void lcddat(unsigned char val) {
+  81   1        P2 = val;
+  82   1        rs = 1;
+  83   1        rw = 0;
+  84   1        en = 1;
+  85   1        delay();
+  86   1        en = 0;
+  87   1      }
+  88          
+  89          void delay() {
+  90   1        unsigned int i;
+  91   1        for (i=0; i<10000; i++) {}
+  92   1      }
+  93          
+  94          void delay1() {
+  95   1        unsigned int j, k;
+  96   1        for (j=0; j<200; j++) {}
+  97   1        for (k=0; k<200; k++) {}
+  98   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    256    ----
+   CODE SIZE        =    215    ----
    CONSTANT SIZE    =   ----    ----
-C51 COMPILER V9.60.0.0   LCD_INTERFACE                                                     10/28/2023 17:36:41 PAGE 3   
-
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
