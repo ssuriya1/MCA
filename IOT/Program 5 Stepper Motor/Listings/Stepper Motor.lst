@@ -1,0 +1,40 @@
+A51 MACRO ASSEMBLER  STEPPER_MOTOR                                                        11/04/2023 16:01:50 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Stepper Motor.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Stepper Motor.asm SET(SMALL) DEBUG PRINT(.\Listings\Stepper Motor.lst) 
+                      OBJECT(.\Objects\Stepper Motor.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 000H
+0000 75A009            2     UP: MOV p2, #09H
+0003 110A              3     ACALL DELAY
+0005 75A006            4     mov P2, #06H
+0008 80F6              5     SJMP UP
+000A 7C12              6     DELAY: MOV R4, #18
+000C 7BFF              7     H1: MOV R3, #255
+000E DBFC              8     H2: DJNZ R3, h1
+0010 DCFA              9     DJNZ R4, h1
+0012 22               10     RET
+                      11     END
+A51 MACRO ASSEMBLER  STEPPER_MOTOR                                                        11/04/2023 16:01:50 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   000AH   A   
+H1 . . . . . . . .  C ADDR   000CH   A   
+H2 . . . . . . . .  C ADDR   000EH   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+UP . . . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
