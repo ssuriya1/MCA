@@ -1,0 +1,7 @@
+sorted_vector <- sort(vector_data)
+vector1 <- c(1, 2, 3)
+vector2 <- c(4, 5, 6)
+merged_vector <- c(vector1, vector2)
+data <- c(12, 15, 18, 24, 9)
+mean_data <- mean(data)
+sum_data <- sum(data)
